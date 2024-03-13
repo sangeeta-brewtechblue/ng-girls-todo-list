@@ -9,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class InputButtonUniComponent {
      title="learn about comp"
+     constructor(){
+      setTimeout(()=>{this.title="not this one"},1000);
+     }
+     changeTitle(newt:string){
+      this.title =newt;
+     }
+      
+     getInputValue($event:any){
+      return $event.target.value;
+     }
+     
+
 }
