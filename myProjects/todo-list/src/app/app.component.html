@@ -13,9 +13,17 @@
      <div class="content"> 
       <h1>Hello, {{ title }}</h1>
       <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <app-input-button-uni></app-input-button-uni>
-</main>
+    
+    <app-input-button-uni (submit)="addItem($event)></app-input-button-uni>
+    <ul>
+      @for(let todoItem of todoList; track todoItem.title) {
+        <li>
+          {{ todoItem.title }}
+        </li>
+      }
+    </ul>
+  </div>
+  </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->

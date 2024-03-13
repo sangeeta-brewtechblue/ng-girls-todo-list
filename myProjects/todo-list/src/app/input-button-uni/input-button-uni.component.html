@@ -1,11 +1,11 @@
 <p>input-button-uni works!</p>
-{{title}}
+
 <!--<input   [value]="title" >
 <button (click)="changeTitle('new title')">Save</button>-->
 
-<input   [value]="title" (keyup.enter)="changeTitle(getInputValue($event))">
-<button (click)="changeTitle('new tiltle')">Save</button>
+<!--<input   [value]="title" (keyup.enter)="changeTitle(getInputValue($event))">
+<button (click)="changeTitle('new tiltle')">Save</button>-->
 
-<!--<input  #myinput [value]="title">
-<button (click)="changeTitle(myinput.value)">Save</button>-->
+<input  #myinput [value]="title" (keyup.enter)="submitValue(getInputValue($event))">
+<button (click)="submitValue(myinput.value)">Save</button>
 

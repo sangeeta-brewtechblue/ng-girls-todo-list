@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-uni',
@@ -9,11 +9,13 @@ import { Component } from '@angular/core';
 })
 export class InputButtonUniComponent {
      title="learn about comp"
+     @Output() 
+     submit: EventEmitter<string> = new EventEmitter<string>();
      constructor(){
       setTimeout(()=>{this.title="not this one"},1000);
      }
-     changeTitle(newt:string){
-      this.title =newt;
+     submitValue(newTitle:string){
+      this.submit.emit(newTitle);
      }
       
      getInputValue($event:any){
