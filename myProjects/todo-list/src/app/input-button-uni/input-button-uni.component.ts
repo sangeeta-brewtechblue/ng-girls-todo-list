@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './input-button-uni.component.scss'
 })
 export class InputButtonUniComponent {
-
+     title="learn about comp"
 }
