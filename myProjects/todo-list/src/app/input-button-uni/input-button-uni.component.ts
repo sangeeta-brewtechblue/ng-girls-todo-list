@@ -10,12 +10,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class InputButtonUniComponent {
      title="learn about comp"
      @Output() 
-     submit: EventEmitter<string> = new EventEmitter<string>();
+     submitOne: EventEmitter<string> = new EventEmitter<string>();
      constructor(){
       setTimeout(()=>{this.title="not this one"},1000);
      }
      submitValue(newTitle:string){
-      this.submit.emit(newTitle);
+      alert("hi"+newTitle);
+      this.submitOne.emit(newTitle);
      }
       
      getInputValue($event:any){

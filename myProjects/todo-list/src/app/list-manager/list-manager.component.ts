@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { InputButtonUniComponent } from "../input-button-uni/input-button-uni.component";
 import { CommonModule } from '@angular/common';
+import { TodoListService } from '../services/todo-list.service';
+import { TodoItem } from '../interfaces/todo-item.ts';
 
 @Component({
     selector: 'app-list-manager',
     standalone: true,
     imports: [CommonModule,InputButtonUniComponent],
     template: `
-   <app-input-button-uni (submit)="addItem($event)"></app-input-button-uni>
+   <app-input-button-uni (submitOne)="addItem($event)"></app-input-button-uni>
   <ul>
     @for(todoItem of todoList ; track todoItem.title) {
       <li>
@@ -21,16 +23,18 @@ import { CommonModule } from '@angular/common';
     
 })
 export class ListManagerComponent {
-  todoList = [
-    {title: 'install NodeJS'},
-    {title: 'install Angular CLI'},
-    {title: 'create new app'},
-    {title: 'serve app'},
-    {title: 'develop app'},
-    {title: 'deploy app'},
-  ];
-  addItem(title: string) {    
-    this.todoList.push({ title });
+  todoListService!: TodoListService;
+  todoList: TodoItem[];
+ 
+ 
+  constructor(todoListService: TodoListService) {
+    this.todoList =  todoListService.getTodoList();
+  }
+
+  addItem(title: string) { 
+    alert('hi'+"here"+title)   
+   // this.todoListService.addItem(title);
+   this.todoList.push({'title':title});
   }
 
 }
